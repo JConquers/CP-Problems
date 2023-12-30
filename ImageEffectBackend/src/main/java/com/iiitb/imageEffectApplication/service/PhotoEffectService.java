@@ -54,12 +54,12 @@ public class PhotoEffectService {
 
             // TODO
             
-            amount/=200; // so that amount comes as a fraction
+            amount/=200; // so that amount comes as a fraction, between 0 and 1
     
             BrightnessEffect effect=new BrightnessEffect();
             try{ effect.setParameterValue(amount); }
             catch(IllegalParameterException e){ 
-                e.getMessage();
+                System.out.println(e.getMessage()+"\n"+e.getStackTrace());
                 System.exit(0);
             }
             Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService);//BrightnessInterface.applyBrightness(inputImage, amount); // Replace this with actual modified image
@@ -92,8 +92,8 @@ public class PhotoEffectService {
                 effect.setParameterValue(amount);
             }
             catch(IllegalParameterException e){ 
-                System.out.println(e.getMessage());
-                e.printStackTrace();
+                System.out.println(e.getMessage()+"\n"+e.getStackTrace());
+                System.exit(0);
             }
 
             
@@ -128,7 +128,7 @@ public class PhotoEffectService {
                 effect.selectOptionValue("v", verticalFlipValue);
             }
             catch(IllegalParameterException e){
-                e.getMessage();
+                System.out.println(e.getMessage()+"\n"+e.getStackTrace());
                 System.exit(0);
             }
             Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image

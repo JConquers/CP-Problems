@@ -8,11 +8,11 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 public class ContrastEffect {
     private float amount;
     public void setParameterValue(float parameterValue) throws IllegalParameterException{
-       // if(amount<0 || amount>2) throw new IllegalParameterException("Invalid params, amount expected in [0,1].");
+        if(parameterValue<0 || parameterValue>2) throw new IllegalParameterException("Invalid params, expected real no in [0, 2].");
         this.amount=parameterValue;
     }
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        loggingService.addLog(fileName, "Contast", Float.toString(amount));
+        loggingService.addLog(fileName, "Contrast", Float.toString(amount));
         return ContrastInterface.applyContrast(image, amount);
     }
     

@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class LoggingService {
+    String DB_FILE="logDB.txt"; // File that serves as database for logs
     List<LogModel> listOfLogs=null;
     FileWriter fw;
 
@@ -37,7 +38,7 @@ public class LoggingService {
 
         listOfLogs.add(lm); // active logs
         
-        try{ fw=new FileWriter("logDB.txt", true); } // Open the file in append mode
+        try{ fw=new FileWriter(DB_FILE, true); } // Open the file in append mode
         catch(IOException e){ e.printStackTrace();}
         
         try { fw.write(formattedTimestamp+" "+effectName+" "+optionValues+" "+ fileName+"\n"); /*System.out.println("WRITTEN");*/ }
@@ -53,7 +54,7 @@ public class LoggingService {
         
         List<LogModel> newList=new ArrayList<LogModel>();
 
-        try (Scanner scanner = new Scanner(new File("logDB.txt"))) {
+        try (Scanner scanner = new Scanner(new File(DB_FILE))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 
@@ -77,7 +78,7 @@ public class LoggingService {
         }
 
         listOfLogs=newList;
-        return newList;
+        return listOfLogs;
 
     }
 
@@ -89,8 +90,8 @@ public class LoggingService {
         return newList;
     }
 
-    public void clearLogs() {
-        try{ fw=new FileWriter("logDB.txt"); } // Open the file in append mode
+    public void clearLogs() { // Flush DB
+        try{ fw=new FileWriter(DB_FILE); } // Open the file in overwrite mode
         catch(IOException e){ e.printStackTrace();}
         
         try { fw.write(""); /*System.out.println("WRITTEN");*/ }

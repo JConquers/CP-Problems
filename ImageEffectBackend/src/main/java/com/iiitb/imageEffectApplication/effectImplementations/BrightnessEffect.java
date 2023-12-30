@@ -13,7 +13,8 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 public class BrightnessEffect implements SingleValueParameterizableEffect{
     private float amount;
     public void setParameterValue(float parameterValue) throws IllegalParameterException{
-        if(parameterValue>8000) throw new IllegalParameterException("INVALID PARAMETER FOUND");
+        // parameter should be between 0 and 1
+        if(parameterValue>1 || parameterValue<0) throw new IllegalParameterException("Inavalid params, expected a real number in [0, 1]");
         this.amount=parameterValue;
     }
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
