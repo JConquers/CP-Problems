@@ -1,0 +1,24 @@
+30-12-2023-00:10 Contast 20.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:10 Contast 147.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:11 Contast 0.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:11 Contast 18.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:11 Contast 86.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:11 Contast 86.0 Screenshot 2023-05-13 041104.png
+30-12-2023-00:12 Contast 1.0 Screenshot 2023-05-13 012053.png
+30-12-2023-00:12 Contast 1.55 Screenshot 2023-05-13 012053.png
+30-12-2023-00:12 Contast 0.11 Screenshot 2023-05-13 012053.png
+30-12-2023-00:29 Invert NONE Screenshot 2023-03-09 160002.png
+30-12-2023-00:29 Invert NONE Screenshot 2023-03-09 155926.png
+30-12-2023-00:40 Seipa NONE Screenshot 2023-03-09 160002.png
+30-12-2023-06:46 Grayscale NONE Screenshot 2023-05-13 041104.png
+30-12-2023-06:46 Grayscale NONE Screenshot 2023-03-09 160002.png
+30-12-2023-06:46 Grayscale NONE WIN_20230716_20_18_22_Pro.jpg
+30-12-2023-07:24 Brightness 0.9 Screenshot 2023-05-13 041104.png
+30-12-2023-07:24 Brightness 0.9 Screenshot 2023-05-13 012053.png
+30-12-2023-07:25 Brightness 0.645 Screenshot 2023-03-09 160002.png
+30-12-2023-07:25 Grayscale NONE Screenshot 2023-05-13 041104.png
+30-12-2023-07:25 Grayscale NONE Screenshot 2023-07-15 161359.png
+30-12-2023-07:26 Grayscale NONE Screenshot 2023-08-02 101450.png
+30-12-2023-08:01 Rotation 180 Screenshot 2023-05-13 041104.png
+30-12-2023-08:02 Invert NONE Screenshot 2023-05-13 041104.png
+30-12-2023-08:05 Rotation 270 Screenshot 2023-05-13 041104.png

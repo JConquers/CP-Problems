@@ -1,6 +1,8 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
+import com.iiitb.imageEffectApplication.effectImplementations.*;
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
+import com.iiitb.imageEffectApplication.libraryInterfaces.*;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,7 +53,16 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            
+            amount/=200; // so that amount comes as a fraction
+    
+            BrightnessEffect effect=new BrightnessEffect();
+            try{ effect.setParameterValue(amount); }
+            catch(IllegalParameterException e){ 
+                e.getMessage();
+                System.exit(0);
+            }
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService);//BrightnessInterface.applyBrightness(inputImage, amount); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -73,9 +84,21 @@ public class PhotoEffectService {
 
 
             // ACTUAL WORK STARTS HERE
+            amount/=100.0; // range between 0 and 2. 1---> no contrast
+            
+            System.out.println("AMOUNT: "+amount);
+            ContrastEffect effect=new ContrastEffect();
+            try{
+                effect.setParameterValue(amount);
+            }
+            catch(IllegalParameterException e){ 
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
 
+            
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService);; // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -99,7 +122,16 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            FlipEffect effect=new FlipEffect();
+            try{
+                effect.selectOptionValue("h", horizontalFlipValue);
+                effect.selectOptionValue("v", verticalFlipValue);
+            }
+            catch(IllegalParameterException e){
+                e.getMessage();
+                System.exit(0);
+            }
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -146,7 +178,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+
+            GrayscaleEffect effect=new GrayscaleEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -166,7 +200,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+
+            InvertEffect effect=new InvertEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -187,7 +223,14 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            System.out.println("VAL: "+value);
+            RotationEffect effect=new RotationEffect();
+            try{ effect.setParameterValue(value); }
+            catch(IllegalParameterException e){
+                e.printStackTrace();
+                System.exit(0);
+            }
+            Pixel[][] modifiedImage =effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -208,7 +251,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            SepiaEffect effect=new SepiaEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
